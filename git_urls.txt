@@ -1,0 +1,5 @@
+https://github.com/apache/storm.git
+https://github.com/elastic/elasticsearch.git
+https://github.com/JakeWharton/ActionBarSherlock.git
+https://github.com/facebook/facebook-android-sdk.git
+https://github.com/clojure/clojure.git
