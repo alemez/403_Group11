@@ -23,3 +23,4 @@ with open(spread_sheet_file, 'a', newline = '') as fp:
 	for character in ascii_letters:
 		data = [character, character_counter[character]],
 		a.writerows(data)
+		
