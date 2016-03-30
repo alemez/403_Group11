@@ -1,7 +1,22 @@
 import os
 import os.path
 
+def error_prone_line_detector(confidence_interval, c_count, err_prone_chars, err_prone_chars_percentages):
+	i = 0
+	for character in err_prone_chars:
+		occurrance_rate = character_counter[character]
+		if((err_prone_chars_percentages[i] >= occurrance_rate*(1-confidence_interval)) and (err_prone_chars_percentages[i] <= occurrance_rate*(1+confidence_interval))):
+			return True
+		i = i + 1
+	return False		
+
+
+
 git_project_txt = "git_urls.txt"
+confidence_interval = .05
+error_prone_characters = {'a','b','c','d'}
+error_prone_characters_percentages = [.10,.18,.15,.12]
+
 with open(git_project_txt, 'r') as myfile:
 	data = myfile.read()
 
@@ -26,6 +41,17 @@ for projectURL in projectURLs:
 #Appears as though all of the java files are found through the below 3 lines of code
 for dirpath, dirnames, filenames in os.walk("."):
 	for filename in [f for f in filenames if f.endswith(".java")]:
-		with open("java_files_all_projects.txt", "a") as myfile:
-			myfile.write(os.path.join(dirpath, filename))
-			myfile.write("\n")
+		#Open the java file
+		java_file = os.path.join(dirpath, filename)
+		with open(java_file, encoding="utf8") as java_file_in:
+			lines = java_file_in.readlines()
+			for line in lines:
+				from collections import Counter
+				character_counter = Counter(line)
+				if(error_prone_line_detector(confidence_interval, character_counter, error_prone_characters, error_prone_characters_percentages)):
+					with open("defective_java_files.txt", "a") as out_file:
+						out_file.write(os.path.join(dirpath, filename))
+						out_file.write("\n")
+
+				#Some sort of comparisson for if the line is to count
+				#If there is a line that is flagged increase a counter and flag file as defective
