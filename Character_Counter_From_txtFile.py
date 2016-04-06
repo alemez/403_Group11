@@ -16,11 +16,14 @@ character_counter = Counter(characters_as_string)
 if os.path.isfile(spread_sheet_file):
 	os.remove(spread_sheet_file)
 
+iterator = 0
 with open(spread_sheet_file, 'a', newline = '') as fp:
 	a = csv.writer(fp, delimiter = ',')
 	data = [["Character Counter"]]
 	a.writerows(data)
 	for character in ascii_letters:
+		iterator = iterator + character_counter[character]
 		data = [character, character_counter[character]],
 		a.writerows(data)
-		
+	data = ["Total:", iterator],	
+	a.writerows(data)

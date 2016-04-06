@@ -45,12 +45,15 @@ for dirpath, dirnames, filenames in os.walk("."):
 		java_file = os.path.join(dirpath, filename)
 		with open(java_file, encoding="utf8") as java_file_in:
 			lines = java_file_in.readlines()
+			q = 0
 			for line in lines:
 				from collections import Counter
 				character_counter = Counter(line)
 				if(error_prone_line_detector(confidence_interval, character_counter, error_prone_characters, error_prone_characters_percentages)):
 					with open("defective_java_files.txt", "a") as out_file:
 						out_file.write(os.path.join(dirpath, filename))
+						out_file.write(" ")
+						out_file.write(q)
 						out_file.write("\n")
 
 				#Some sort of comparisson for if the line is to count

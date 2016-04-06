@@ -1,0 +1,39 @@
+public final boolean onCreatePanelMenu(int featureId, android.view.Menu menu) {
+public final boolean onMenuItemSelected(int featureId, android.view.MenuItem item) {
+public final boolean onPreparePanel(int featureId, View view, android.view.Menu menu) {
+final State state;
+final State state;
+currentState = State.WRITE_DATA;
+int r = Math.abs(new Random().nextInt());
+(i = e & SMASK) < n && i >= 0 &&
+switch (action) {
+ ((GlobalChannelTrafficShapingHandler) trafficShapingHandler).channelQueues.values()) {
+perChannel.channelTrafficCounter.resetCumulativeTime();
+((GlobalChannelTrafficShapingHandler) trafficShapingHandler).channelQueues.values()) {
+int r = Math.abs(new Random().nextInt());
+synchronized (this) { notifyAll(); }
+notifyAll();
+synchronized (this) { notifyAll(); }
+return v != null ? valueConverter.convertToBoolean(v) : null;
+return v != null ? valueConverter.convertToBoolean(v) : null;
+return null;
+return null;
+leak = AbstractByteBuf.leakDetector.open(buf);
+ByteBufAllocator DEFAULT = ByteBufUtil.DEFAULT_ALLOCATOR;
+AbstractChannelHandlerContext next = this.next;
+ctx = ctx.prev;
+perChannel.channelTrafficCounter.resetAccounting(newLastTime);
+for (PerChannel perChannel : trafficShapingHandler1.channelQueues.values()) {
+counter.scheduledFuture = counter.executor.schedule(this, counter.checkInterval.get(),TimeUnit.MILLISECONDS);
+counter.scheduledFuture = counter.executor.schedule(this, counter.checkInterval.get(),TimeUnit.MILLISECONDS);
+lastTime.set(milliSecondFromNano());
+monitor = new MixedTrafficMonitoringTask((GlobalChannelTrafficShapingHandler) trafficShapingHandler, this);
+P_INDEX_OFFSET = PlatformDependent0.UNSAFE.objectFieldOffset(MpscArrayQueueTailField.class.getDeclaredField("producerIndex"));
+if (arrayList != null) {
+checkIndex(readerIndex);
+w.currentSteal = ps;
+currentState = State.INIT_BLOCK;
+import android.content.Intent;
+import android.content.Intent;
+import android.content.Intent;
+private final List<FullCommitFile> files;
