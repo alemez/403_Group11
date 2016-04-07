@@ -14,7 +14,7 @@ def error_prone_line_detector(confidence_interval, c_count, err_prone_chars, err
 
 ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 git_project_txt = "git_urls.txt"
-confidence_interval = 0.0005
+confidence_interval = 0.0025
 error_prone_characters = {'n','a','t','e'}
 error_prone_characters_percentages = [.0965079365, .0679365079, .0825396825, .1168253968]
 

@@ -1,42 +1,818 @@
-0 .\netty\codec\src\main\java\io\netty\handler\codec\compression\Bzip2HuffmanAllocator.java 116      * A final allocation pass that relocates nodes in order to achieve a maximum code length limit.
+0 .\netty\buffer\src\main\java\io\netty\buffer\ByteBuf.java 1937      * Iterates over the readable bytes of this buffer with the specified {@code processor} in ascending order.
 
-1 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\websocketx\TextWebSocketFrame.java 44      * Creates a new text frame with the specified binary data. The final fragment flag is set to true.
+1 .\netty\buffer\src\main\java\io\netty\buffer\ByteBuf.java 2172     public abstract String toString(int index, int length, Charset charset);
 
-2 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\websocketx\TextWebSocketFrame.java 76      * Creates a new text frame with the specified binary data. The final fragment flag is set to true.
+2 .\netty\buffer\src\main\java\io\netty\buffer\ByteBufInputStream.java 26  * A read operation against this stream will occur at the {@code readerIndex}
 
-3 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2Connection.java 140                     // If modifications of the activeStream map is allowed, then a stream close operation will also
+3 .\netty\buffer\src\main\java\io\netty\buffer\ByteBufUtil.java 642      * Return an array of the underlying storage from {@code buf} into a byte array.
 
-4 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2ConnectionHandler.java 604             // Don't write a RST_STREAM frame if we are not aware of the stream, or if we have already written one.
+4 .\netty\buffer\src\main\java\io\netty\buffer\CompositeByteBuf.java 1593         return direct ? alloc().directBuffer(capacity) : alloc().heapBuffer(capacity);
 
-5 .\netty\codec-memcache\src\main\java\io\netty\handler\codec\memcache\binary\AbstractBinaryMemcacheDecoder.java 34 public abstract class AbstractBinaryMemcacheDecoder<M extends BinaryMemcacheMessage>
+5 .\netty\buffer\src\main\java\io\netty\buffer\package-info.java 64  * the composite of buffers as an array of {@link java.nio.ByteBuffer}s rather
 
-6 .\netty\codec-memcache\src\main\java\io\netty\handler\codec\memcache\binary\AbstractBinaryMemcacheEncoder.java 26 public abstract class AbstractBinaryMemcacheEncoder<M extends BinaryMemcacheMessage>
+6 .\netty\buffer\src\main\java\io\netty\buffer\PoolArena.java 669         protected PoolChunk<ByteBuffer> newChunk(int pageSize, int maxOrder, int pageShifts, int chunkSize) {
 
-7 .\netty\codec-socks\src\main\java\io\netty\handler\codec\socks\SocksAuthRequest.java 30     private static final SocksSubnegotiationVersion SUBNEGOTIATION_VERSION = SocksSubnegotiationVersion.AUTH_PASSWORD;
+7 .\netty\buffer\src\main\java\io\netty\buffer\PoolChunk.java 51  * With this tree available searching in chunkArray translates like this:
 
-8 .\netty\codec-socks\src\main\java\io\netty\handler\codec\socks\SocksAuthResponse.java 26     private static final SocksSubnegotiationVersion SUBNEGOTIATION_VERSION = SocksSubnegotiationVersion.AUTH_PASSWORD;
+8 .\netty\buffer\src\main\java\io\netty\buffer\PoolChunk.java 71  *                                    some of its children can still be allocated based on their availability
 
-9 .\netty\codec-socks\src\main\java\io\netty\handler\codec\socks\SocksCmdResponse.java 36     // All arrays are initialized on construction time to 0/false/null remove array Initialization
+9 .\netty\buffer\src\main\java\io\netty\buffer\PooledByteBuf.java 38     protected PooledByteBuf(Recycler.Handle<? extends PooledByteBuf<T>> recyclerHandle, int maxCapacity) {
 
-10 .\netty\common\src\main\java\io\netty\util\concurrent\FastThreadLocalThread.java 65      * Sets the internal data structure that keeps the thread-local variables bound to this thread.
+10 .\netty\buffer\src\main\java\io\netty\buffer\PooledByteBufAllocator.java 150     public PooledByteBufAllocator(boolean preferDirect, int nHeapArena, int nDirectArena, int pageSize, int maxOrder) {
 
-11 .\netty\common\src\main\java\io\netty\util\internal\SpscLinkedQueue.java 35  * 1024 Cores</a> by D. Vyukov. The original has been adapted to Java and it's quirks with regards to memory
+11 .\netty\buffer\src\main\java\io\netty\buffer\PooledByteBufAllocator.java 155     public PooledByteBufAllocator(boolean preferDirect, int nHeapArena, int nDirectArena, int pageSize, int maxOrder,
 
-12 .\netty\transport\src\main\java\io\netty\channel\AbstractChannelHandlerContext.java 41     // These needs to be volatile as otherwise an other Thread may see an half initialized instance.
+12 .\netty\buffer\src\main\java\io\netty\buffer\PooledDirectByteBuf.java 188     private void getBytes(int index, OutputStream out, int length, boolean internal) throws IOException {
 
-13 .\netty\transport\src\main\java\io\netty\channel\Channel.java 397      * {@link ChannelInboundHandler#channelRead(ChannelHandlerContext, Object)} event if data was
+13 .\netty\buffer\src\main\java\io\netty\buffer\Unpooled.java 82     public static final ByteOrder LITTLE_ENDIAN = ByteOrder.LITTLE_ENDIAN;
 
-14 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 405      * {@link ChannelInboundHandler#channelRead(ChannelHandlerContext, Object)} event if data was
+14 .\netty\buffer\src\main\java\io\netty\buffer\UnpooledByteBufAllocator.java 65                 new UnpooledUnsafeDirectByteBuf(this, initialCapacity, maxCapacity) :
 
-15 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 919      * {@link ChannelInboundHandler#channelRead(ChannelHandlerContext, Object)} event if data was
+15 .\netty\buffer\src\main\java\io\netty\buffer\UnpooledDirectByteBuf.java 495     private void getBytes(int index, OutputStream out, int length, boolean internal) throws IOException {
 
-16 .\netty\transport\src\main\java\io\netty\channel\SingleThreadEventLoop.java 77      * Marker interface for {@link Runnable} that will not trigger an {@link #wakeup(boolean)} in all cases.
+16 .\netty\buffer\src\test\java\io\netty\buffer\PooledByteBufAllocatorTest.java 223         long runningTime = MILLISECONDS.toNanos(SystemPropertyUtil.getLong(
 
-17 .\netty\transport\src\main\java\io\netty\channel\local\LocalChannel.java 388         // we keep track of the task, and coordinate later that our read can't happen until the peer is done.
+17 .\netty\codec\src\main\java\io\netty\handler\codec\ByteToMessageDecoder.java 423      * {@link ByteBuf} has nothing to read when return from this method or till nothing was read from the input
 
-18 .\netty\transport\src\main\java\io\netty\channel\socket\DefaultDatagramChannelConfig.java 217     public DatagramChannelConfig setLoopbackModeDisabled(boolean loopbackModeDisabled) {
+18 .\netty\codec\src\main\java\io\netty\handler\codec\CharSequenceValueConverter.java 11  * or implied. See the License for the specific language governing permissions and limitations under
 
-19 .\netty\transport\src\main\java\io\netty\channel\socket\nio\NioDatagramChannelConfig.java 158     public DatagramChannelConfig setLoopbackModeDisabled(boolean loopbackModeDisabled) {
+19 .\netty\codec\src\main\java\io\netty\handler\codec\DefaultHeaders.java 11  * or implied. See the License for the specific language governing permissions and limitations under
 
-20 .\netty\transport-native-epoll\src\main\java\io\netty\channel\epoll\EpollDatagramChannelConfig.java 304     public DatagramChannelConfig setLoopbackModeDisabled(boolean loopbackModeDisabled) {
+20 .\netty\codec\src\main\java\io\netty\handler\codec\DefaultHeadersImpl.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+21 .\netty\codec\src\main\java\io\netty\handler\codec\EmptyHeaders.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+22 .\netty\codec\src\main\java\io\netty\handler\codec\Headers.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+23 .\netty\codec\src\main\java\io\netty\handler\codec\Headers.java 101      * @return the {@code boolean} value of the first value in insertion order or {@code defaultValue} if there is no
+
+24 .\netty\codec\src\main\java\io\netty\handler\codec\Headers.java 233      * Returns the {@code double} value of a header with the specified name. If there is more than one value for the
+
+25 .\netty\codec\src\main\java\io\netty\handler\codec\Headers.java 243      * Returns the {@code double} value of a header with the specified name. If there is more than one value for the
+
+26 .\netty\codec\src\main\java\io\netty\handler\codec\Headers.java 296      * @return the {@code boolean} value of the first value in insertion order or {@code defaultValue} if there is no
+
+27 .\netty\codec\src\main\java\io\netty\handler\codec\Headers.java 492      * object. If there is more than one value for the specified {@code name}, the first value in insertion order is
+
+28 .\netty\codec\src\main\java\io\netty\handler\codec\Headers.java 505      * object. If there is more than one value for the specified {@code name}, the first value in insertion order is
+
+29 .\netty\codec\src\main\java\io\netty\handler\codec\ValueConverter.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+30 .\netty\codec\src\main\java\io\netty\handler\codec\base64\Base64Decoder.java 32  * if you are using a stream-based transport such as TCP/IP.  A typical decoder
+
+31 .\netty\codec\src\main\java\io\netty\handler\codec\compression\Bzip2DivSufSort.java 602     private void ssMergeBackward(final int pa, int[] buf, final int bufoffset,
+
+32 .\netty\codec\src\main\java\io\netty\handler\codec\compression\Bzip2DivSufSort.java 733     private void ssMergeCheckEqual(final int pa, final int depth, final int a) {
+
+33 .\netty\codec\src\main\java\io\netty\handler\codec\compression\Bzip2DivSufSort.java 1114     private void lsUpdateGroup(final int isa, final int first, final int last) {
+
+34 .\netty\codec\src\main\java\io\netty\handler\codec\compression\Bzip2HuffmanAllocator.java 116      * A final allocation pass that relocates nodes in order to achieve a maximum code length limit.
+
+35 .\netty\codec\src\main\java\io\netty\handler\codec\compression\LzfDecoder.java 85      * It should be safe to call this constructor as implementations are dynamically loaded; however, on some
+
+36 .\netty\codec\src\main\java\io\netty\handler\codec\compression\LzfEncoder.java 53      * It should be safe to call this constructor as implementations are dynamically loaded; however, on some
+
+37 .\netty\codec\src\main\java\io\netty\handler\codec\compression\LzmaFrameEncoder.java 129      *        Note, that {@link LzmaFrameEncoder} always sets size of uncompressed data
+
+38 .\netty\codec\src\main\java\io\netty\handler\codec\json\JsonObjectDecoder.java 178     protected ByteBuf extractObject(ChannelHandlerContext ctx, ByteBuf buffer, int index, int length) {
+
+39 .\netty\codec\src\main\java\io\netty\handler\codec\protobuf\ProtobufVarint32LengthFieldPrepender.java 57     static void writeRawVarint32(ByteBuf out, int value) throws IOException {
+
+40 .\netty\codec\src\test\java\io\netty\handler\codec\DefaultHeadersTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+41 .\netty\codec\src\test\java\io\netty\handler\codec\compression\SnappyFrameDecoderTest.java 134     public void testInvalidChecksumThrowsException() throws Exception {
+
+42 .\netty\codec\src\test\java\io\netty\handler\codec\marshalling\AbstractCompatibleMarshallingDecoderTest.java 32 public abstract class AbstractCompatibleMarshallingDecoderTest {
+
+43 .\netty\codec\src\test\java\io\netty\handler\codec\marshalling\AbstractCompatibleMarshallingDecoderTest.java 39         MarshallingConfiguration configuration = createMarshallingConfig();
+
+44 .\netty\codec\src\test\java\io\netty\handler\codec\marshalling\AbstractCompatibleMarshallingDecoderTest.java 69         MarshallingConfiguration configuration = createMarshallingConfig();
+
+45 .\netty\codec\src\test\java\io\netty\handler\codec\marshalling\AbstractCompatibleMarshallingDecoderTest.java 99         MarshallingConfiguration configuration = createMarshallingConfig();
+
+46 .\netty\codec-dns\src\main\java\io\netty\handler\codec\dns\DnsRecordType.java 48      * authoritative information about a DNS zone, including the primary name
+
+47 .\netty\codec-dns\src\main\java\io\netty\handler\codec\dns\DnsRecordType.java 304     private static final IntObjectHashMap<DnsRecordType> BY_TYPE = new IntObjectHashMap<DnsRecordType>();
+
+48 .\netty\codec-haproxy\src\main\java\io\netty\handler\codec\haproxy\HAProxyProxiedProtocol.java 186          * The UNSPEC transport protocol represents a connection which was forwarded for an unkown protocol.
+
+49 .\netty\codec-haproxy\src\test\java\io\netty\handler\codec\haproxy\HAProxyMessageDecoderTest.java 202         assertEquals(AddressFamily.AF_UNSPEC, AddressFamily.valueOf(unkown));
+
+50 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\DefaultHttpMessage.java 37     protected DefaultHttpMessage(final HttpVersion version, boolean validateHeaders, boolean singleFieldHeaders) {
+
+51 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\DefaultLastHttpContent.java 27 public class DefaultLastHttpContent extends DefaultHttpContent implements LastHttpContent {
+
+52 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\HttpClientCodec.java 157         Decoder(int maxInitialLineLength, int maxHeaderSize, int maxChunkSize, boolean validateHeaders) {
+
+53 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\HttpClientCodec.java 161         Decoder(int maxInitialLineLength, int maxHeaderSize, int maxChunkSize, boolean validateHeaders,
+
+54 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\HttpClientUpgradeHandler.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+55 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\HttpContentDecoder.java 219         // call retain here as it will call release after its written to the channel
+
+56 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\HttpContentEncoder.java 295         // call retain here as it will call release after its written to the channel
+
+57 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\HttpHeaders.java 287         public static final String SEC_WEBSOCKET_ACCEPT = "Sec-WebSocket-Accept";
+
+58 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\HttpServerCodec.java 48     public HttpServerCodec(int maxInitialLineLength, int maxHeaderSize, int maxChunkSize, boolean validateHeaders) {
+
+59 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\HttpServerCodec.java 56     public HttpServerCodec(int maxInitialLineLength, int maxHeaderSize, int maxChunkSize, boolean validateHeaders,
+
+60 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\HttpServerUpgradeHandler.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+61 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\websocketx\TextWebSocketFrame.java 44      * Creates a new text frame with the specified binary data. The final fragment flag is set to true.
+
+62 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\websocketx\TextWebSocketFrame.java 76      * Creates a new text frame with the specified binary data. The final fragment flag is set to true.
+
+63 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\websocketx\WebSocketClientHandshaker.java 428     public ChannelFuture close(Channel channel, CloseWebSocketFrame frame, ChannelPromise promise) {
+
+64 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\websocketx\WebSocketClientProtocolHandler.java 147      *            The {@link WebSocketClientHandshaker} which will be used to issue the handshake once the connection
+
+65 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\websocketx\WebSocketClientProtocolHandler.java 161      *            The {@link WebSocketClientHandshaker} which will be used to issue the handshake once the connection
+
+66 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\websocketx\WebSocketServerHandshaker.java 329     public ChannelFuture close(Channel channel, CloseWebSocketFrame frame, ChannelPromise promise) {
+
+67 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\websocketx\WebSocketServerHandshaker00.java 181     public ChannelFuture close(Channel channel, CloseWebSocketFrame frame, ChannelPromise promise) {
+
+68 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\websocketx\extensions\compression\DeflateFrameClientExtensionHandshaker.java 20 import io.netty.handler.codec.http.websocketx.extensions.WebSocketClientExtensionHandshaker;
+
+69 .\netty\codec-http\src\main\java\io\netty\handler\codec\http\websocketx\extensions\compression\PerMessageDeflateClientExtensionHandshaker.java 22 import io.netty.handler.codec.http.websocketx.extensions.WebSocketClientExtensionHandshaker;
+
+70 .\netty\codec-http\src\main\java\io\netty\handler\codec\spdy\DefaultSpdyGoAwayFrame.java 63     public SpdyGoAwayFrame setLastGoodStreamId(int lastGoodStreamId) {
+
+71 .\netty\codec-http\src\main\java\io\netty\handler\codec\spdy\SpdyFrameDecoder.java 19 import static io.netty.handler.codec.spdy.SpdyCodecUtil.SPDY_FLAG_FIN;
+
+72 .\netty\codec-http\src\main\java\io\netty\handler\codec\spdy\SpdyFrameEncoder.java 77     public ByteBuf encodeSynReplyFrame(ByteBufAllocator allocator, int streamId, boolean last, ByteBuf headerBlock) {
+
+73 .\netty\codec-http\src\main\java\io\netty\handler\codec\spdy\SpdySessionHandler.java 184                 issueStreamError(ctx, streamId, SpdyStreamStatus.FLOW_CONTROL_ERROR);
+
+74 .\netty\codec-http\src\main\java\io\netty\handler\codec\spdy\SpdySessionHandler.java 407                     issueStreamError(ctx, streamId, SpdyStreamStatus.FLOW_CONTROL_ERROR);
+
+75 .\netty\codec-http\src\main\java\io\netty\handler\codec\spdy\SpdySessionHandler.java 806                 ctx.writeAndFlush(spdyDataFrame, pendingWrite.promise).addListener(new ChannelFutureListener() {
+
+76 .\netty\codec-http\src\main\java\io\netty\handler\codec\spdy\SpdyStreamFrame.java 18  * A SPDY Protocol Frame that is associated with an individual SPDY Stream
+
+77 .\netty\codec-http\src\main\java\io\netty\handler\codec\spdy\SpdySynStreamFrame.java 31     SpdySynStreamFrame setAssociatedStreamId(int associatedStreamId);
+
+78 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\HttpClientCodecTest.java 136                 Unpooled.copiedBuffer(INCOMPLETE_CHUNKED_RESPONSE, CharsetUtil.ISO_8859_1)));
+
+79 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\HttpContentDecoderTest.java 48         assertEquals(HELLO_WORLD, new String(helloWorld, CharsetUtil.US_ASCII));
+
+80 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\HttpContentDecoderTest.java 103         assertEquals(HELLO_WORLD, resp.content().toString(CharsetUtil.US_ASCII));
+
+81 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\HttpObjectAggregatorTest.java 324         EmbeddedChannel embedder = new EmbeddedChannel(new HttpRequestDecoder(), new HttpObjectAggregator(4));
+
+82 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\HttpObjectAggregatorTest.java 372         EmbeddedChannel embedder = new EmbeddedChannel(new HttpRequestDecoder(), new HttpObjectAggregator(15));
+
+83 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\HttpRequestDecoderTest.java 205         assertThat(channel.readInbound(), is(instanceOf(LastHttpContent.class)));
+
+84 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\HttpRequestDecoderTest.java 235         assertThat(channel.readInbound(), is(instanceOf(LastHttpContent.class)));
+
+85 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\HttpResponseDecoderTest.java 614      * Tests if the decoder produces one and only {@link LastHttpContent} when an invalid chunk is received and
+
+86 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\cors\CorsHandlerTest.java 180         assertThat(response.headers().get(of("GenHeader")), equalTo("generatedValue"));
+
+87 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\multipart\HttpPostRequestDecoderTest.java 54     public void testBinaryStreamUploadWithoutSpace() throws Exception {
+
+88 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\websocketx\extensions\compression\WebSocketServerCompressionHandlerTest.java 59                 new PerMessageDeflateServerExtensionHandshaker(6, false, 10, false, false)));
+
+89 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\websocketx\extensions\compression\WebSocketServerCompressionHandlerTest.java 80                 new PerMessageDeflateServerExtensionHandshaker(6, false, 10, false, false)));
+
+90 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\websocketx\extensions\compression\WebSocketServerCompressionHandlerTest.java 122                 new PerMessageDeflateServerExtensionHandshaker(6, false, 15, false, false)));
+
+91 .\netty\codec-http\src\test\java\io\netty\handler\codec\http\websocketx\extensions\compression\WebSocketServerCompressionHandlerTest.java 177                 new PerMessageDeflateServerExtensionHandshaker(6, false, 15, false, false)));
+
+92 .\netty\codec-http\src\test\java\io\netty\handler\codec\spdy\SpdyFrameDecoderTest.java 337     public void testUnknownSpdySynStreamFrameFlags() throws Exception {
+
+93 .\netty\codec-http\src\test\java\io\netty\handler\codec\spdy\SpdyFrameDecoderTest.java 639     public void testInvalidSpdyRstStreamFrameFlags() throws Exception {
+
+94 .\netty\codec-http\src\test\java\io\netty\handler\codec\spdy\SpdySessionHandlerTest.java 74         assertEquals(lastGoodStreamId, spdyGoAwayFrame.lastGoodStreamId());
+
+95 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\AbstractHttp2StreamChannel.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+96 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\AbstractInboundHttp2ToHttpAdapterBuilder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+97 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\CompressorHttp2ConnectionEncoder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+98 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\CompressorHttp2ConnectionEncoder.java 82     public ChannelFuture writeData(final ChannelHandlerContext ctx, final int streamId, ByteBuf data, int padding,
+
+99 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\CompressorHttp2ConnectionEncoder.java 88             return super.writeData(ctx, streamId, data, padding, endOfStream, promise);
+
+100 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\CompressorHttp2ConnectionEncoder.java 167             ChannelFuture future = super.writeHeaders(ctx, streamId, headers, streamDependency, weight, exclusive,
+
+101 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DecoratingHttp2ConnectionDecoder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+102 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DecoratingHttp2ConnectionEncoder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+103 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DecoratingHttp2FrameWriter.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+104 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2Connection.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+105 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2Connection.java 140                     // If modifications of the activeStream map is allowed, then a stream close operation will also
+
+106 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2Connection.java 683                 // may not be successful and may return null. This is because when an exclusive dependency is processed
+
+107 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2ConnectionDecoder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+108 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2ConnectionDecoder.java 40  * This interface enforces inbound flow control functionality through
+
+109 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2ConnectionEncoder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+110 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2ConnectionEncoder.java 112     public ChannelFuture writeData(final ChannelHandlerContext ctx, final int streamId, ByteBuf data, int padding,
+
+111 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2FrameReader.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+112 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2FrameWriter.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+113 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2FrameWriter.java 438             writeFrameHeaderInternal(buf, payloadLength, HEADERS, flags, streamId);
+
+114 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2Headers.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+115 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2HeadersDecoder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+116 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2HeadersEncoder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+117 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2HeadersEncoder.java 94         return aString.isEntireArrayUsed() ? aString.array() : aString.toByteArray();
+
+118 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2HeaderTableListSize.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+119 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2LocalFlowController.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+120 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2RemoteFlowController.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+121 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DefaultHttp2RemoteFlowController.java 250         // The current allocation algorithm values "fairness" and doesn't give any consideration to "goodput". It
+
+122 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DelegatingDecompressorFrameListener.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+123 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\DelegatingDecompressorFrameListener.java 83             // call retain here as it will call release after its written to the channel
+
+124 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\EmptyHttp2Headers.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+125 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2ClientUpgradeCodec.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+126 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2CodecUtil.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+127 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2CodecUtil.java 101      * The assumed minimum value for {@code SETTINGS_MAX_CONCURRENT_STREAMS} as
+
+128 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2Connection.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+129 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2Connection.java 58          * Notifies the listener that the given stream is now {@code CLOSED} in both directions and will no longer
+
+130 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2ConnectionAdapter.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+131 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2ConnectionDecoder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+132 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2ConnectionEncoder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+133 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2ConnectionHandler.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+134 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2ConnectionHandler.java 57  * This interface enforces inbound flow control functionality through
+
+135 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2ConnectionHandler.java 604             // Don't write a RST_STREAM frame if we are not aware of the stream, or if we have already written one.
+
+136 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2DataWriter.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+137 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2Error.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+138 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2EventAdapter.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+139 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2Exception.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+140 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2Flags.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+141 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2FlowController.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+142 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2FrameAdapter.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+143 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2FrameAdapter.java 20  * Convenience class that provides no-op implementations for all methods of {@link Http2FrameListener}.
+
+144 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2FrameListener.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+145 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2FrameListenerDecorator.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+146 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2FrameReader.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+147 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2FrameSizePolicy.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+148 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2FrameTypes.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+149 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2FrameWriter.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+150 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2FrameWriter.java 149     ChannelFuture writePushPromise(ChannelHandlerContext ctx, int streamId, int promisedStreamId,
+
+151 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2Headers.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+152 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2HeadersDecoder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+153 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2HeadersEncoder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+154 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2HeadersFrame.java 25      * A complete header list. CONTINUATION frames are automatically handled.
+
+155 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2HeaderTable.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+156 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2LifecycleManager.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+157 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2LocalFlowController.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+158 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2MultiplexCodec.java 274             ChannelFuture future = createStreamChannel(ctx, stream, streamHandler);
+
+159 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2NoMoreStreamIdsException.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+160 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2PromisedRequestVerifier.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+161 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2RemoteFlowController.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+162 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2ServerUpgradeCodec.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+163 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2Settings.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+164 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2Stream.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+165 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\Http2StreamVisitor.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+166 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\HttpConversionUtil.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+167 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandler.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+168 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\InboundHttp2ToHttpAdapter.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+169 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\InboundHttp2ToHttpAdapterBuilder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+170 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\InboundHttp2ToHttpPriorityAdapter.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+171 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\InboundHttp2ToHttpPriorityAdapterBuilder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+172 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\package-info.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+173 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\StreamBufferingEncoder.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+174 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\StreamBufferingEncoder.java 189             return super.writeData(ctx, streamId, data, padding, endOfStream, promise);
+
+175 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\StreamByteDistributor.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+176 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\UniformStreamByteDistributor.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+177 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\WeightedFairQueueByteDistributor.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+178 .\netty\codec-http2\src\main\java\io\netty\handler\codec\http2\WeightedFairQueueByteDistributor.java 166      * If a stream has no children (in the allocation tree) than that node must be active or it will not be in the
+
+179 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DataCompressionHttp2Test.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+180 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DefaultHttp2ConnectionDecoderTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+181 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DefaultHttp2ConnectionEncoderTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+182 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DefaultHttp2ConnectionEncoderTest.java 172             public ChannelPromise answer(InvocationOnMock in) throws Throwable {
+
+183 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DefaultHttp2ConnectionTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+184 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DefaultHttp2ConnectionTest.java 706     public void sameNodeDependentShouldNotStackOverflowNorChangePrioritizableForTree() throws Http2Exception {
+
+185 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DefaultHttp2ConnectionTest.java 1156         // The following setup will ensure that clienListener throws exceptions, and marks a value in an array
+
+186 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DefaultHttp2ConnectionTest.java 1249             client.goAwaySent(client.connectionStream().id(), Http2Error.INTERNAL_ERROR.code(), Unpooled.EMPTY_BUFFER);
+
+187 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DefaultHttp2HeadersDecoderTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+188 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DefaultHttp2HeadersEncoderTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+189 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DefaultHttp2HeaderTableListSizeTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+190 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DefaultHttp2LocalFlowControllerTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+191 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\DefaultHttp2RemoteFlowControllerTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+192 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\Http2ConnectionHandlerTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+193 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\Http2ConnectionRoundtripTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+194 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\Http2ConnectionRoundtripTest.java 51 import static io.netty.handler.codec.http2.Http2TestUtil.randomString;
+
+195 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\Http2ConnectionRoundtripTest.java 183                 throw Http2Exception.connectionError(PROTOCOL_ERROR, "Fake Exception");
+
+196 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\Http2FrameRoundtripTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+197 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\Http2FrameRoundtripTest.java 19 import static io.netty.handler.codec.http2.Http2TestUtil.randomString;
+
+198 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\Http2FrameRoundtripTest.java 211     public void emptyHeadersWithPaddingShouldMatch() throws Exception {
+
+199 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\Http2HeaderBlockIOTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+200 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\Http2HeaderBlockIOTest.java 24 import static io.netty.handler.codec.http2.Http2TestUtil.randomString;
+
+201 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\Http2MultiplexCodecTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+202 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\Http2SettingsTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+203 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\Http2TestUtil.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+204 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+205 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 140         verifyHeadersOnly(http2Headers, writePromise, clientChannel.writeAndFlush(request, writePromise));
+
+206 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 161         verifyHeadersOnly(http2Headers, writePromise, clientChannel.writeAndFlush(request, writePromise));
+
+207 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 177         verifyHeadersOnly(http2Headers, writePromise, clientChannel.writeAndFlush(request, writePromise));
+
+208 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 194         verifyHeadersOnly(http2Headers, writePromise, clientChannel.writeAndFlush(request, writePromise));
+
+209 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 212         verifyHeadersOnly(http2Headers, writePromise, clientChannel.writeAndFlush(request, writePromise));
+
+210 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 228         verifyHeadersOnly(http2Headers, writePromise, clientChannel.writeAndFlush(request, writePromise));
+
+211 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 242         verifyHeadersOnly(http2Headers, writePromise, clientChannel.writeAndFlush(request, writePromise));
+
+212 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 258         verifyHeadersOnly(http2Headers, writePromise, clientChannel.writeAndFlush(request, writePromise));
+
+213 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 276         verifyHeadersOnly(http2Headers, writePromise, clientChannel.writeAndFlush(request, writePromise));
+
+214 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 292         verifyHeadersOnly(http2Headers, writePromise, clientChannel.writeAndFlush(request, writePromise));
+
+215 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 308         verifyHeadersOnly(http2Headers, writePromise, clientChannel.writeAndFlush(request, writePromise));
+
+216 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\HttpToHttp2ConnectionHandlerTest.java 539     private void verifyHeadersOnly(Http2Headers expected, ChannelPromise writePromise, ChannelFuture writeFuture)
+
+217 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\InboundHttp2ToHttpAdapterTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+218 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\StreamBufferingEncoderTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+219 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\UniformStreamByteDistributorFlowControllerTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+220 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\UniformStreamByteDistributorTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+221 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\WeightedFairQueueByteDistributorTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+222 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\WeightedFairQueueRemoteFlowControllerTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+223 .\netty\codec-http2\src\test\java\io\netty\handler\codec\http2\hpack\DecoderTest.java 127     public void testInsidiousMaxDynamicTableSize() throws IOException {
+
+224 .\netty\codec-memcache\src\main\java\io\netty\handler\codec\memcache\binary\AbstractBinaryMemcacheDecoder.java 34 public abstract class AbstractBinaryMemcacheDecoder<M extends BinaryMemcacheMessage>
+
+225 .\netty\codec-memcache\src\main\java\io\netty\handler\codec\memcache\binary\AbstractBinaryMemcacheEncoder.java 26 public abstract class AbstractBinaryMemcacheEncoder<M extends BinaryMemcacheMessage>
+
+226 .\netty\codec-memcache\src\main\java\io\netty\handler\codec\memcache\binary\BinaryMemcacheOpcodes.java 18  * Represents all Opcodes that can occur in a {@link BinaryMemcacheMessage}.
+
+227 .\netty\codec-mqtt\src\main\java\io\netty\handler\codec\mqtt\MqttDecoder.java 233         final MqttConnectVariableHeader mqttConnectVariableHeader = new MqttConnectVariableHeader(
+
+228 .\netty\codec-mqtt\src\main\java\io\netty\handler\codec\mqtt\MqttQoS.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+229 .\netty\codec-mqtt\src\main\java\io\netty\handler\codec\mqtt\package-info.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+230 .\netty\codec-mqtt\src\test\java\io\netty\handler\codec\mqtt\MqttCodecTest.java 402         assertEquals("MqttConnectPayload WillMessage mismatch ", expected.willMessage(), actual.willMessage());
+
+231 .\netty\codec-socks\src\main\java\io\netty\handler\codec\socks\SocksCmdResponse.java 36     // All arrays are initialized on construction time to 0/false/null remove array Initialization
+
+232 .\netty\codec-socks\src\test\java\io\netty\handler\codec\socksx\v5\DefaultSocks5CommandResponseTest.java 31             new DefaultSocks5CommandResponse(Socks5CommandStatus.FAILURE, null);
+
+233 .\netty\common\src\main\java\io\netty\util\AsciiString.java 253      * Iterates over the readable bytes of this buffer with the specified {@code processor} in ascending order.
+
+234 .\netty\common\src\main\java\io\netty\util\AsciiString.java 1379      * Returns an {@link AsciiString} containing the given character sequence. If the given string is already a
+
+235 .\netty\common\src\main\java\io\netty\util\Attribute.java 40      *  Atomically sets to the given value and returns the old value which may be {@code null} if non was set before.
+
+236 .\netty\common\src\main\java\io\netty\util\ByteProcessor.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+237 .\netty\common\src\main\java\io\netty\util\CharsetUtil.java 89         e.onMalformedInput(malformedInputAction).onUnmappableCharacter(unmappableCharacterAction);
+
+238 .\netty\common\src\main\java\io\netty\util\CharsetUtil.java 145         d.onMalformedInput(malformedInputAction).onUnmappableCharacter(unmappableCharacterAction);
+
+239 .\netty\common\src\main\java\io\netty\util\DomainNameMapping.java 136         return StringUtil.simpleClassName(this) + "(default: " + defaultValue + ", map: " + map + ')';
+
+240 .\netty\common\src\main\java\io\netty\util\HashedWheelTimer.java 44  * specifying smaller or larger tick duration in the constructor.  In most
+
+241 .\netty\common\src\main\java\io\netty\util\ReferenceCounted.java 26  * If an object that implements {@link ReferenceCounted} is a container of other objects that implement
+
+242 .\netty\common\src\main\java\io\netty\util\concurrent\AbstractScheduledEventExecutor.java 105      * Return the nanoseconds when the next scheduled task is ready to be run or {@code -1} if no task is scheduled.
+
+243 .\netty\common\src\main\java\io\netty\util\concurrent\AbstractScheduledEventExecutor.java 154                 this, callable, ScheduledFutureTask.deadlineNanos(unit.toNanos(delay))));
+
+244 .\netty\common\src\main\java\io\netty\util\concurrent\DefaultPromise.java 777             ProgressiveFuture<?> future, GenericProgressiveFutureListener<?>[] listeners, long progress, long total) {
+
+245 .\netty\common\src\main\java\io\netty\util\concurrent\FastThreadLocalThread.java 65      * Sets the internal data structure that keeps the thread-local variables bound to this thread.
+
+246 .\netty\common\src\main\java\io\netty\util\concurrent\SingleThreadEventExecutor.java 76         AtomicReferenceFieldUpdater<SingleThreadEventExecutor, ThreadProperties> propertiesUpdater =
+
+247 .\netty\common\src\main\java\io\netty\util\internal\JavassistTypeParameterMatcherGenerator.java 53         ClassLoader classLoader = PlatformDependent.getContextClassLoader();
+
+248 .\netty\common\src\main\java\io\netty\util\internal\MathUtil.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+249 .\netty\common\src\main\java\io\netty\util\internal\MpscArrayQueue.java 38  * method for polling from the queue (with minor change to correctly publish the index) and an extension of
+
+250 .\netty\common\src\main\java\io\netty\util\internal\MpscArrayQueue.java 39  * the Leslie Lamport concurrent queue algorithm (originated by Martin Thompson) on the producer side.<br>
+
+251 .\netty\common\src\main\java\io\netty\util\internal\MpscLinkedQueue.java 61  * data structure modified to avoid false sharing between head and tail Ref as per implementation of MpscLinkedQueue
+
+252 .\netty\common\src\main\java\io\netty\util\internal\NativeLibraryLoader.java 35     private static final InternalLogger logger = InternalLoggerFactory.getInstance(NativeLibraryLoader.class);
+
+253 .\netty\common\src\main\java\io\netty\util\internal\ObjectUtil.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+254 .\netty\common\src\main\java\io\netty\util\internal\SpscLinkedAtomicQueue.java 65      * From this follows that producerNode.next is always null and for all other nodes node.next is not null.
+
+255 .\netty\common\src\main\java\io\netty\util\internal\SpscLinkedQueue.java 35  * 1024 Cores</a> by D. Vyukov. The original has been adapted to Java and it's quirks with regards to memory
+
+256 .\netty\common\src\main\java\io\netty\util\internal\SpscLinkedQueue.java 64      * From this follows that producerNode.next is always null and for all other nodes node.next is not null.
+
+257 .\netty\common\src\main\java\io\netty\util\internal\logging\Log4JLogger.java 176      * Log an exception (throwable) at level TRACE with an accompanying message.
+
+258 .\netty\common\src\main\java\io\netty\util\internal\logging\Log4JLogger.java 277      * Log an exception (throwable) at level DEBUG with an accompanying message.
+
+259 .\netty\common\src\test\java\io\netty\util\AsciiStringCharacterTest.java 250         assertThat(AsciiString.contentEqualsIgnoreCase(new AsciiString("FoO"), new AsciiString("bAr")), is(false));
+
+260 .\netty\common\src\test\java\io\netty\util\internal\TypeParameterMatcherTest.java 108         TypeParameterMatcher m = TypeParameterMatcher.find(new U<byte[]>() { }, U.class, "E");
+
+261 .\netty\example\src\main\java\io\netty\example\http2\Http2ExampleUtil.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+262 .\netty\example\src\main\java\io\netty\example\http2\helloworld\client\Http2Client.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+263 .\netty\example\src\main\java\io\netty\example\http2\helloworld\client\Http2ClientInitializer.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+264 .\netty\example\src\main\java\io\netty\example\http2\helloworld\client\Http2SettingsHandler.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+265 .\netty\example\src\main\java\io\netty\example\http2\helloworld\client\HttpResponseHandler.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+266 .\netty\example\src\main\java\io\netty\example\http2\helloworld\client\HttpResponseHandler.java 52     public Entry<ChannelFuture, ChannelPromise> put(int streamId, ChannelFuture writeFuture, ChannelPromise promise) {
+
+267 .\netty\example\src\main\java\io\netty\example\http2\helloworld\multiplex\server\HelloWorldHttp2Handler.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+268 .\netty\example\src\main\java\io\netty\example\http2\helloworld\multiplex\server\Http2OrHttpHandler.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+269 .\netty\example\src\main\java\io\netty\example\http2\helloworld\multiplex\server\Http2OrHttpHandler.java 37     protected void configurePipeline(ChannelHandlerContext ctx, String protocol) throws Exception {
+
+270 .\netty\example\src\main\java\io\netty\example\http2\helloworld\server\HelloWorldHttp2Handler.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+271 .\netty\example\src\main\java\io\netty\example\http2\helloworld\server\Http2OrHttpHandler.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+272 .\netty\example\src\main\java\io\netty\example\http2\helloworld\server\Http2OrHttpHandler.java 35     protected void configurePipeline(ChannelHandlerContext ctx, String protocol) throws Exception {
+
+273 .\netty\example\src\main\java\io\netty\example\http2\tiles\FallbackRequestHandler.java 40 public final class FallbackRequestHandler extends SimpleChannelInboundHandler<HttpRequest> {
+
+274 .\netty\example\src\main\java\io\netty\example\http2\tiles\Http2OrHttpHandler.java 41     protected void configurePipeline(ChannelHandlerContext ctx, String protocol) throws Exception {
+
+275 .\netty\example\src\main\java\io\netty\example\http2\tiles\ImageCache.java 34     private final Map<String, ByteBuf> imageBank = new HashMap<String, ByteBuf>(200);
+
+276 .\netty\example\src\main\java\io\netty\example\spdy\server\SpdyOrHttpHandler.java 43     protected void configurePipeline(ChannelHandlerContext ctx, String protocol) throws Exception {
+
+277 .\netty\example\src\main\java\io\netty\example\worldclock\WorldClockProtocol.java 1139     public static io.netty.example.worldclock.WorldClockProtocol.Locations parseDelimitedFrom(java.io.InputStream input)
+
+278 .\netty\example\src\main\java\io\netty\example\worldclock\WorldClockProtocol.java 2566     private LocalTimes(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+279 .\netty\example\src\main\java\io\netty\example\worldclock\WorldClockProtocol.java 2662     public java.util.List<io.netty.example.worldclock.WorldClockProtocol.LocalTime> getLocalTimeList() {
+
+280 .\netty\example\src\main\java\io\netty\example\worldclock\WorldClockProtocol.java 2978       public java.util.List<io.netty.example.worldclock.WorldClockProtocol.LocalTime> getLocalTimeList() {
+
+281 .\netty\handler\src\main\java\io\netty\handler\logging\LoggingHandler.java 334             buf.append(chStr).append(' ').append(eventName).append(", ").append(msgStr).append(", 0B");
+
+282 .\netty\handler\src\main\java\io\netty\handler\ssl\CipherSuiteConverter.java 82     private static final Pattern OPENSSL_AES_PATTERN = Pattern.compile("^(AES)([0-9]+)-(.*)$");
+
+283 .\netty\handler\src\main\java\io\netty\handler\ssl\JdkApplicationProtocolNegotiator.java 46      * {@link ProtocolSelector#unsupported()} OR {@link ProtocolSelector#select(List)} will be called for each SSL
+
+284 .\netty\handler\src\main\java\io\netty\handler\ssl\JdkBaseApplicationProtocolNegotiator.java 193         public void noSelectedMatchFound(String protocol) throws Exception {
+
+285 .\netty\handler\src\main\java\io\netty\handler\ssl\JdkBaseApplicationProtocolNegotiator.java 203         public void noSelectedMatchFound(String protocol) throws Exception {
+
+286 .\netty\handler\src\main\java\io\netty\handler\ssl\JdkSslEngine.java 80     public SSLEngineResult unwrap(ByteBuffer byteBuffer, ByteBuffer byteBuffer2) throws SSLException {
+
+287 .\netty\handler\src\main\java\io\netty\handler\ssl\OpenSslEngine.java 460             final ByteBuffer[] srcs, final int offset, final int length, final ByteBuffer dst) throws SSLException {
+
+288 .\netty\handler\src\main\java\io\netty\handler\ssl\OpenSslEngine.java 832             final ByteBuffer src, final ByteBuffer[] dsts, final int offset, final int length) throws SSLException {
+
+289 .\netty\handler\src\main\java\io\netty\handler\ssl\SslContextBuilder.java 118      * @param keyManagerFactory non-{@code null} factory for server's private key
+
+290 .\netty\handler\src\main\java\io\netty\handler\ssl\SslHandler.java 230      * {@link #channelReadComplete(ChannelHandlerContext)} will check this flag, clear it, and call ctx.flush().
+
+291 .\netty\handler\src\main\java\io\netty\handler\ssl\SslHandler.java 239      * This flag is used to determine if we need to call {@link ChannelHandlerContext#read()} to consume more data
+
+292 .\netty\handler\src\main\java\io\netty\handler\ssl\SslHandler.java 365         return ((ApplicationProtocolAccessor) sess).getApplicationProtocol();
+
+293 .\netty\handler\src\main\java\io\netty\handler\ssl\SslHandler.java 672             // CompositeByteBuf without force an extra memory copy when CompositeByteBuffer.nioBuffer() is called.
+
+294 .\netty\handler\src\main\java\io\netty\handler\stream\ChunkedNioStream.java 25  * A {@link ChunkedInput} that fetches data from a {@link ReadableByteChannel}
+
+295 .\netty\handler\src\main\java\io\netty\handler\stream\ChunkedWriteHandler.java 65  * transfer.  To resume the transfer when a new chunk is available, you have to
+
+296 .\netty\handler\src\test\java\io\netty\handler\ssl\SniHandlerTest.java 58                 ApplicationProtocolConfig.SelectorFailureBehavior.NO_ADVERTISE,
+
+297 .\netty\handler\src\test\java\io\netty\handler\ssl\SniHandlerTest.java 201                         protected void configurePipeline(ChannelHandlerContext ctx, String protocol) throws Exception {
+
+298 .\netty\handler\src\test\java\io\netty\handler\ssl\SniHandlerTest.java 222                         protected void configurePipeline(ChannelHandlerContext ctx, String protocol) throws Exception {
+
+299 .\netty\handler\src\test\java\io\netty\handler\ssl\SslContextTrustManagerTest.java 108     private static X509TrustManager getTrustManager(String[] resourceNames)
+
+300 .\netty\handler-proxy\src\main\java\io\netty\handler\proxy\ProxyHandler.java 406     public final void flush(ChannelHandlerContext ctx) throws Exception {
+
+301 .\netty\handler-proxy\src\test\java\io\netty\handler\proxy\ProxyHandlerTest.java 101     static final ProxyServer anonHttpProxy = new HttpProxyServer(false, TestMode.TERMINAL, DESTINATION);
+
+302 .\netty\microbench\src\main\java\io\netty\microbench\channel\EmbeddedChannelWriteReleaseHandlerContext.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+303 .\netty\microbench\src\main\java\io\netty\microbench\http2\Http2FrameWriterBenchmark.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+304 .\netty\microbench\src\main\java\io\netty\microbench\http2\NoopHttp2LocalFlowController.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+305 .\netty\microbench\src\main\java\io\netty\microbench\http2\NoopHttp2RemoteFlowController.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+306 .\netty\microbench\src\main\java\io\netty\microbench\http2\NoPriorityByteDistributionBenchmark.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+307 .\netty\microbench\src\main\java\io\netty\microbenchmark\common\AppendableCharSequenceBenchmark.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+308 .\netty\microbench\src\main\java\io\netty\microbenchmark\common\IntObjectHashMapBenchmark.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+309 .\netty\resolver\src\main\java\io\netty\resolver\AbstractAddressResolver.java 201     protected abstract void doResolveAll(T unresolvedAddress, Promise<List<T>> promise) throws Exception;
+
+310 .\netty\resolver-dns\src\main\java\io\netty\resolver\dns\DefaultDnsCache.java 37     private final ConcurrentMap<String, List<DnsCacheEntry>> resolveCache = PlatformDependent.newConcurrentHashMap();
+
+311 .\netty\resolver-dns\src\main\java\io\netty\resolver\dns\DnsNameResolverBuilder.java 121      * resource record returned by the DNS server is less than the minimum TTL or greater than the maximum TTL,
+
+312 .\netty\testsuite\src\main\java\io\netty\testsuite\transport\socket\DatagramMulticastTest.java 35 public class DatagramMulticastTest extends AbstractDatagramTest {
+
+313 .\netty\testsuite\src\main\java\io\netty\testsuite\transport\socket\SocketConnectionAttemptTest.java 129     public void testConnectCancellation(Bootstrap cb) throws Throwable {
+
+314 .\netty\testsuite\src\main\java\io\netty\testsuite\transport\socket\SocketEchoTest.java 119     public void testSimpleEchoWithAdditionalExecutorAndVoidPromise(ServerBootstrap sb, Bootstrap cb) throws Throwable {
+
+315 .\netty\testsuite\src\main\java\io\netty\testsuite\transport\socket\SocketSslSessionReuseTest.java 99         final ReadAndDiscardHandler sh = new ReadAndDiscardHandler(true, true);
+
+316 .\netty\testsuite\src\main\java\io\netty\testsuite\transport\udt\UDTClientServerConnectionTest.java 68             final ThreadFactory clientFactory = new DefaultThreadFactory("client");
+
+317 .\netty\testsuite\src\main\java\io\netty\testsuite\transport\udt\UDTClientServerConnectionTest.java 196             final ThreadFactory serverFactory = new DefaultThreadFactory("server");
+
+318 .\netty\transport\src\main\java\io\netty\channel\AbstractChannel.java 417         private ChannelOutboundBuffer outboundBuffer = new ChannelOutboundBuffer(AbstractChannel.this);
+
+319 .\netty\transport\src\main\java\io\netty\channel\AbstractChannel.java 728             // As a user may call deregister() from within any method while doing processing in the ChannelPipeline,
+
+320 .\netty\transport\src\main\java\io\netty\channel\AbstractChannelHandlerContext.java 41     // These needs to be volatile as otherwise an other Thread may see an half initialized instance.
+
+321 .\netty\transport\src\main\java\io\netty\channel\Channel.java 253      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+322 .\netty\transport\src\main\java\io\netty\channel\Channel.java 265      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+323 .\netty\transport\src\main\java\io\netty\channel\Channel.java 276      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+324 .\netty\transport\src\main\java\io\netty\channel\Channel.java 290      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+325 .\netty\transport\src\main\java\io\netty\channel\Channel.java 302      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+326 .\netty\transport\src\main\java\io\netty\channel\Channel.java 334      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+327 .\netty\transport\src\main\java\io\netty\channel\Channel.java 348      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+328 .\netty\transport\src\main\java\io\netty\channel\Channel.java 361      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+329 .\netty\transport\src\main\java\io\netty\channel\Channel.java 376      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+330 .\netty\transport\src\main\java\io\netty\channel\Channel.java 390      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+331 .\netty\transport\src\main\java\io\netty\channel\Channel.java 397      * {@link ChannelInboundHandler#channelRead(ChannelHandlerContext, Object)} event if data was
+
+332 .\netty\transport\src\main\java\io\netty\channel\Channel.java 404      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+333 .\netty\transport\src\main\java\io\netty\channel\ChannelFlushPromiseNotifier.java 119      * their pendingDatasize isis smaller then the current writeCounter returned by {@link #writeCounter()}.
+
+334 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 261      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
+
+335 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 273      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
+
+336 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 284      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
+
+337 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 298      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
+
+338 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 310      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
+
+339 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 342      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
+
+340 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 356      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
+
+341 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 369      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
+
+342 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 384      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
+
+343 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 398      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
+
+344 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 405      * {@link ChannelInboundHandler#channelRead(ChannelHandlerContext, Object)} event if data was
+
+345 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerContext.java 412      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
+
+346 .\netty\transport\src\main\java\io\netty\channel\ChannelHandlerInvokerUtil.java 162     public static void invokeFlushNow(final ChannelHandlerContext ctx) {
+
+347 .\netty\transport\src\main\java\io\netty\channel\ChannelInboundHandlerAdapter.java 26  * Be aware that messages are not released after the {@link #channelRead(ChannelHandlerContext, Object)}
+
+348 .\netty\transport\src\main\java\io\netty\channel\ChannelMetadata.java 44      * @param defaultMaxMessagesPerRead If a {@link MaxMessagesRecvByteBufAllocator} is in use, then this value will be
+
+349 .\netty\transport\src\main\java\io\netty\channel\ChannelOutboundBuffer.java 668     private static void safeFail(ChannelPromise promise, Throwable cause) {
+
+350 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 532      * @param  newHandler    the {@link ChannelHandler} which is used as replacement
+
+351 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 552      * @param  newHandler    the {@link ChannelHandler} which is used as replacement
+
+352 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 572      * @param  newHandler       the {@link ChannelHandler} which is used as replacement
+
+353 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 775      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+354 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 787      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+355 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 798      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+356 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 812      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+357 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 824      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+358 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 856      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+359 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 870      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+360 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 883      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+361 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 898      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+362 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 912      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+363 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 919      * {@link ChannelInboundHandler#channelRead(ChannelHandlerContext, Object)} event if data was
+
+364 .\netty\transport\src\main\java\io\netty\channel\ChannelPipeline.java 926      * method called of the next {@link ChannelOutboundHandler} contained in the  {@link ChannelPipeline} of the
+
+365 .\netty\transport\src\main\java\io\netty\channel\CoalescingBufferQueue.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+366 .\netty\transport\src\main\java\io\netty\channel\DefaultChannelConfig.java 73     private volatile int connectTimeoutMillis = DEFAULT_CONNECT_TIMEOUT;
+
+367 .\netty\transport\src\main\java\io\netty\channel\DefaultChannelId.java 41     private static final Pattern MACHINE_ID_PATTERN = Pattern.compile("^(?:[0-9a-fA-F][:-]?){6,8}$");
+
+368 .\netty\transport\src\main\java\io\netty\channel\DefaultChannelPipeline.java 1300         private static final String TAIL_NAME = generateName0(TailContext.class);
+
+369 .\netty\transport\src\main\java\io\netty\channel\DefaultChannelPipeline.java 1368         private static final String HEAD_NAME = generateName0(HeadContext.class);
+
+370 .\netty\transport\src\main\java\io\netty\channel\PendingWriteQueue.java 270     private static void safeFail(ChannelPromise promise, Throwable cause) {
+
+371 .\netty\transport\src\main\java\io\netty\channel\RecvByteBufAllocator.java 81          * @param bytes How many bytes the read operation will (or did) attempt to read.
+
+372 .\netty\transport\src\main\java\io\netty\channel\ServerChannel.java 20  * A {@link Channel} that accepts an incoming connection attempt and creates
+
+373 .\netty\transport\src\main\java\io\netty\channel\SingleThreadEventLoop.java 30     protected SingleThreadEventLoop(EventLoopGroup parent, ThreadFactory threadFactory, boolean addTaskWakesUp) {
+
+374 .\netty\transport\src\main\java\io\netty\channel\SingleThreadEventLoop.java 77      * Marker interface for {@link Runnable} that will not trigger an {@link #wakeup(boolean)} in all cases.
+
+375 .\netty\transport\src\main\java\io\netty\channel\group\ChannelGroupFuture.java 152     ChannelGroupFuture removeListeners(GenericFutureListener<? extends Future<? super Void>>... listeners);
+
+376 .\netty\transport\src\main\java\io\netty\channel\group\ChannelMatchers.java 130     private static final class InvertMatcher implements ChannelMatcher {
+
+377 .\netty\transport\src\main\java\io\netty\channel\group\DefaultChannelGroup.java 89      * the same name, which means no duplicate check is done against group names.
+
+378 .\netty\transport\src\main\java\io\netty\channel\local\LocalChannel.java 388         // we keep track of the task, and coordinate later that our read can't happen until the peer is done.
+
+379 .\netty\transport\src\main\java\io\netty\channel\nio\AbstractNioChannel.java 48 public abstract class AbstractNioChannel extends AbstractChannel {
+
+380 .\netty\transport\src\main\java\io\netty\channel\oio\AbstractOioChannel.java 29 public abstract class AbstractOioChannel extends AbstractChannel {
+
+381 .\netty\transport\src\main\java\io\netty\channel\socket\DatagramChannel.java 96      * Leaves a multicast group on a specified local interface and notifies the {@link ChannelFuture} once the
+
+382 .\netty\transport\src\main\java\io\netty\channel\socket\DatagramChannel.java 102      * Leaves a multicast group on a specified local interface and notifies the {@link ChannelFuture} once the
+
+383 .\netty\transport\src\main\java\io\netty\channel\socket\DatagramChannel.java 129      * Block the given sourceToBlock address for the given multicastAddress on the given networkInterface and notifies
+
+384 .\netty\transport\src\main\java\io\netty\channel\socket\DatagramChannel.java 139      * Block the given sourceToBlock address for the given multicastAddress on the given networkInterface and notifies
+
+385 .\netty\transport\src\main\java\io\netty\channel\socket\DatagramChannelConfig.java 56  * <td>{@link ChannelOption#IP_MULTICAST_TTL}</td><td>{@link #setTimeToLive(int)}</td>
+
+386 .\netty\transport\src\main\java\io\netty\channel\socket\DefaultDatagramChannelConfig.java 217     public DatagramChannelConfig setLoopbackModeDisabled(boolean loopbackModeDisabled) {
+
+387 .\netty\transport\src\main\java\io\netty\channel\socket\DefaultServerSocketChannelConfig.java 56         return getOptions(super.getOptions(), SO_RCVBUF, SO_REUSEADDR, SO_BACKLOG);
+
+388 .\netty\transport\src\main\java\io\netty\channel\socket\DefaultServerSocketChannelConfig.java 189     public ServerSocketChannelConfig setWriteBufferHighWaterMark(int writeBufferHighWaterMark) {
+
+389 .\netty\transport\src\main\java\io\netty\channel\socket\SocketChannelConfig.java 47  * <td>{@link ChannelOption#TCP_NODELAY}</td><td>{@link #setTcpNoDelay(boolean)}</td>
+
+390 .\netty\transport\src\main\java\io\netty\channel\socket\nio\NioDatagramChannel.java 125      * Create a new instance using the given {@link InternetProtocolFamily}. If {@code null} is used it will depend
+
+391 .\netty\transport\src\main\java\io\netty\channel\socket\nio\NioDatagramChannelConfig.java 158     public DatagramChannelConfig setLoopbackModeDisabled(boolean loopbackModeDisabled) {
+
+392 .\netty\transport\src\main\java\io\netty\channel\socket\oio\DefaultOioServerSocketChannelConfig.java 182     public OioServerSocketChannelConfig setWriteBufferWaterMark(WriteBufferWaterMark writeBufferWaterMark) {
+
+393 .\netty\transport\src\main\java\io\netty\channel\socket\oio\OioSocketChannelConfig.java 92     OioSocketChannelConfig setAllocator(ByteBufAllocator allocator);
+
+394 .\netty\transport\src\test\java\io\netty\channel\CoalescingBufferQueueTest.java 11  * or implied. See the License for the specific language governing permissions and limitations under
+
+395 .\netty\transport\src\test\java\io\netty\channel\SingleThreadEventLoopTest.java 190             assertThat(timepoint, is(lessThan(TimeUnit.MILLISECONDS.toNanos(100 * (cnt + 1) + 20))));
+
+396 .\netty\transport-native-epoll\src\main\java\io\netty\channel\epoll\AbstractEpollChannel.java 142         // If EPOLL ET mode is enabled and auto read was toggled off on the last read loop then we may not be notified
+
+397 .\netty\transport-native-epoll\src\main\java\io\netty\channel\epoll\EpollDatagramChannelConfig.java 304     public DatagramChannelConfig setLoopbackModeDisabled(boolean loopbackModeDisabled) {
+
+398 .\netty\transport-native-epoll\src\main\java\io\netty\channel\epoll\EpollSocketChannelConfig.java 455     public EpollSocketChannelConfig setTcpQuickAck(boolean quickAck) {
+
+399 .\netty\transport-native-epoll\src\test\java\io\netty\channel\epoll\EpollSocketTestPermutation.java 74                 return new ServerBootstrap().group(EPOLL_BOSS_GROUP, EPOLL_WORKER_GROUP)
+
+400 .\netty\transport-native-epoll\src\test\java\io\netty\channel\epoll\EpollSocketTestPermutation.java 162                         return new ServerBootstrap().group(EPOLL_BOSS_GROUP, EPOLL_WORKER_GROUP)
+
+401 .\netty\transport-sctp\src\main\java\io\netty\channel\sctp\DefaultSctpChannelConfig.java 123             return javaChannel.getOption(SctpStandardSocketOptions.SO_SNDBUF);
+
+402 .\netty\transport-sctp\src\main\java\io\netty\channel\sctp\DefaultSctpChannelConfig.java 142             return javaChannel.getOption(SctpStandardSocketOptions.SO_RCVBUF);
+
+403 .\netty\transport-sctp\src\main\java\io\netty\channel\sctp\DefaultSctpServerChannelConfig.java 91             return javaChannel.getOption(SctpStandardSocketOptions.SO_SNDBUF);
+
+404 .\netty\transport-sctp\src\main\java\io\netty\channel\sctp\DefaultSctpServerChannelConfig.java 110             return javaChannel.getOption(SctpStandardSocketOptions.SO_RCVBUF);
+
+405 .\netty\transport-sctp\src\main\java\io\netty\channel\sctp\nio\NioSctpChannel.java 56  * {@link io.netty.channel.sctp.SctpChannel} implementation which use non-blocking mode and allows to read /
+
+406 .\netty\transport-udt\src\main\java\io\netty\channel\udt\DefaultUdtChannelConfig.java 159     public <T> boolean setOption(final ChannelOption<T> option, final T value) {
+
+407 .\netty\transport-udt\src\main\java\io\netty\channel\udt\DefaultUdtServerChannelConfig.java 76     public <T> boolean setOption(final ChannelOption<T> option, final T value) {
+
+408 .\netty\transport-udt\src\test\java\io\netty\test\udt\nio\NioUdtByteAcceptorChannelTest.java 30         assertFalse(new NioUdtByteAcceptorChannel().metadata().hasDisconnect());
 
